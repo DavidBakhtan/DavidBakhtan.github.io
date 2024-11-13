@@ -8,9 +8,9 @@ const images = document.querySelectorAll('.image-container');
 
     image.addEventListener('click', function(event) {
       if (!isPressed) {
+        event.preventDefault();  
         image.classList.add('hover-effect');
         isPressed = true;
-        event.preventDefault();  
       } else {
         window.location.href = link.href;
       }
