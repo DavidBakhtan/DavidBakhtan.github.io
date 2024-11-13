@@ -183,6 +183,19 @@ footer a,p {
     color: #bfc0d8
 }
 
+.email-icon {
+    font-size: 5vw; 
+}
+
+.github-icon {
+    font-size: 5vw;
+}
+
+.linkedin-icon {
+    font-size: 5vw;
+}
+
+
 @media (max-width: 767px) {
     header {
         position: sticky;

@@ -1,13 +1,18 @@
-// تحديد العنصر
-const image = document.getElementById("myImage");
 
-// وظيفة عند الضغط على الصورة
-image.addEventListener("click", function() {
-  // إضافة/إزالة الكلاس المسؤول عن تكبير الصورة
-//   image.classList.toggle("enlarged");
-  
-  // الانتظار لبعض الوقت ثم فتح الصفحة الجديدة
-//   setTimeout(() => {
-    window.open("https://play.google.com/store/apps/details?id=tv.belight.mobile.android&pcampaignid=web_share", "_blank"); // افتح الصفحة في نافذة جديدة
-//   }, 300); // 300 مللي ثانية، وهي نفس مدة الأنيميشن
-});
+const images = document.querySelectorAll('.image-container');
+
+  images.forEach((imageContainer) => {
+    let isPressed = false;
+    const image = imageContainer.querySelector('.image');
+    const link = imageContainer.querySelector('a');
+
+    image.addEventListener('click', function(event) {
+      if (!isPressed) {
+        image.classList.add('hover-effect');
+        isPressed = true;
+        event.preventDefault();  
+      } else {
+        window.location.href = link.href;
+      }
+    });
+  });
