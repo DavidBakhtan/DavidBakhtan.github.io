@@ -1,7 +1,7 @@
 body {
     background-color: white; 
     font-family: Arial, Helvetica, sans-serif;
-    padding-top: 30px;
+    padding-top: 8px;
     line-height: 1.5;
 }
 
@@ -21,13 +21,22 @@ header {
     font-size: cover;
 }
 
-/* this pic */
-
 .featured-img {
     width: 125px;
     height: 125px;
     border: solid 2px white;
     border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.languageImg {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+.skils-imgs {
     margin-bottom: 10px;
 }
 
@@ -55,9 +64,11 @@ p {
     margin-top: 0;
     margin-bottom: 18px;
 }
+
 header #profile {
     padding-top: 30px;
-} 
+}
+
 header #subtitle {
     margin: 0;
     margin-top: 10px; 
@@ -71,6 +82,43 @@ h2 {
     border-bottom: dotted 1px slategray;
 }
 
+.image-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+  
+.image-container {
+    position: relative;
+    width: 300%;
+    overflow: hidden;
+    text-align: center;
+}
+  
+.image {
+    width: 300px;
+    transition: transform 0.3s ease; 
+    cursor: pointer;
+    border: solid 1px #836d56;
+    border-radius: 5%;
+}
+  
+.overlay-text {
+    opacity: 0;
+    font-size: 16px;
+    color: #333;
+    transition: opacity 0.4s ease;
+}
+
+.image-container:hover .image {
+    transform: scale(.8) translateY(-10px); 
+}
+  
+.image-container:hover .overlay-text {
+    transform: 0.3s ease;
+    opacity: 1;
+}
+  
 ul {
     padding: 0;
     margin-left: 20px;
@@ -109,10 +157,6 @@ a {
     margin-right: 5px;
 }
 
-.social-list a:link {
-    color: #bfc0d8
-}
-
 .social-list a:hover {
     color: #836d56;
 } 
@@ -135,17 +179,19 @@ footer a {
     font-weight: bold;
 }
 
-footer a:hover {
-    text-decoration: underline;
-}
-
-footer a:visited {
+footer a,p {
     color: #bfc0d8
 }
 
 @media (max-width: 767px) {
     header {
         position: sticky;
+    }
+    .image {
+        width: 150px;
+    }
+    .overlay-text {
+        font-size: .9rem;
     }
 }
 
