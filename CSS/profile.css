@@ -30,8 +30,8 @@ header {
 }
 
 .languageImg {
-    width: 100px;
-    height: 100px;
+    width: 10%;
+    height: 10%;
     border-radius: 50%;
     object-fit: fill;
 }
@@ -96,7 +96,7 @@ h2 {
 }
   
 .image {
-    width: 300px;
+    width: 50%;
     transition: transform 0.3s ease; 
     cursor: pointer;
     border: solid 1px #836d56;
@@ -186,9 +186,6 @@ footer a,p {
 @media (max-width: 767px) {
     header {
         position: sticky;
-    }
-    .image {
-        width: 150px;
     }
     .overlay-text {
         font-size: .9rem;
