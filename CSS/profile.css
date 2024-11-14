@@ -184,15 +184,15 @@ footer a,footer p {
 }
 
 .email-icon {
-    font-size: 1.5vw; 
+    font-size: 20px; 
 }
 
 .github-icon {
-    font-size: 1.5vw;
+    font-size: 20px;
 }
 
 .linkedin-icon {
-    font-size: 1.5vw;
+    font-size: 20px;
 }
 
 
@@ -202,6 +202,17 @@ footer a,footer p {
     }
     .overlay-text {
         font-size: .9rem;
+    }
+    .email-icon {
+        font-size: 3vw; 
+    }
+    
+    .github-icon {
+        font-size: 3vw;
+    }
+    
+    .linkedin-icon {
+        font-size: 3vw;
     }
 }
 
