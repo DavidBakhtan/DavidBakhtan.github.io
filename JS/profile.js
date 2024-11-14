@@ -1,58 +1,30 @@
-// const isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
-//   let lastPressedImageId = null;
-//   let isPressed = false;
-
-//   document.querySelectorAll('.image-container').forEach((imageContainer) => {
-//     const image = imageContainer.querySelector('.image');
-//     const link = imageContainer.querySelector('a');
-
-//     image.addEventListener('click', function(event) {
-//       if (isMobile) {
-//         // تحقق مما إذا كانت الصورة التي ضغط عليها هي نفس الصورة الأخيرة
-//         if (lastPressedImageId !== image.id) {
-//           // صورة جديدة: تطبيق تأثير "hover" وإعادة تعيين الحالة
-//           lastPressedImageId = image.id; // تحديث معرف الصورة الأخيرة
-//           image.classList.add('hover-effect');
-//           isPressed = true;
-//           event.preventDefault(); // منع الانتقال للرابط
-//         } else if (isPressed) {
-//           // الضغط الثاني على نفس الصورة يؤدي إلى الانتقال للرابط
-//           window.open(link.href, '_blank');
-//           isPressed = false;
-//           lastPressedImageId = null; // إعادة تعيين معرف الصورة بعد الانتقال
-//         }
-//       } else {
-//         // على الكمبيوتر: الانتقال مباشرة
-//         window.open(link.href, '_blank');
-//       }
-//     });
-//   });
-
-let lastClickedElement = null; // To store the last clicked element
-let isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent); // التحقق من نوع الجهاز // Detect if the device is mobile
-console.log("Is mobile device:", isMobile); 
-// Function to handle click event
-function handleClick(event) {
-    const imageContainer = event.currentTarget; // The image container that was clicked
-    const link = imageContainer.querySelector('a'); // Find the link inside the clicked image container
-
-    // Handle behavior on mobile devices
-    if (isMobile) {
-        // If the same image container was clicked twice, navigate to the link
-        if (lastClickedElement === imageContainer) {
-            window.open(link.href, '_blank'); // Open the link in a new tab
-            lastClickedElement = null; // Reset the last clicked element
-        } else {
-            lastClickedElement = imageContainer; // Set the current image container as clicked
-            imageContainer.classList.add('hovered'); // Apply the hover effect on mobile
-        }
-    } else {
-        // Handle behavior on desktop devices (immediate link opening on click)
-        window.open(link.href, '_blank'); // Open the link in a new tab
+    const isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
+    let lastPressedImageId = null;
+    let isPressed = false;
+    function isMobileDevice() {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     }
-}
 
-// Attach event listeners to each image container
-document.querySelectorAll('.image-container').forEach(container => {
-    container.addEventListener('click', handleClick);
-});
+    document.querySelectorAll('.image-container').forEach((imageContainer) => {
+    const image = imageContainer.querySelector('.image');
+    const link = imageContainer.querySelector('a');
+    
+    if (isMobileDevice()) {
+    image.addEventListener("touchstart", function(event) {
+      if (lastPressedImageId !== image.id) {
+        lastPressedImageId = image.id; 
+        image.classList.add('hover-effect');
+        isPressed = true;
+        event.preventDefault();
+        } else if (isPressed) {
+          window.open(link.href, '_blank');
+          isPressed = false;
+          lastPressedImageId = null; 
+        }
+        });
+    } else {
+    document.addEventListener("mouseover", function(event) {
+    window.open(link.href, '_blank');
+    })
+     }
+    });
