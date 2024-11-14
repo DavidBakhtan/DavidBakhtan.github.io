@@ -118,9 +118,7 @@ h2 {
     transform: 0.3s ease;
     opacity: 1;
 }
-.image.hover-effect {
-    transform: scale(.8) translateY(-10px);
-}
+
   
 ul {
     padding: 0;
