@@ -17,13 +17,13 @@ const isMobile = window.matchMedia("only screen and (max-width: 768px)").matches
           event.preventDefault(); // منع الانتقال للرابط
         } else if (isPressed) {
           // الضغط الثاني على نفس الصورة يؤدي إلى الانتقال للرابط
-          window.location.href = link.href;
+          window.open(link.href, '_blank');
           isPressed = false;
           lastPressedImageId = null; // إعادة تعيين معرف الصورة بعد الانتقال
         }
       } else {
         // على الكمبيوتر: الانتقال مباشرة
-        window.location.href = link.href;
+        window.open(link.href, '_blank');
       }
     });
   });
