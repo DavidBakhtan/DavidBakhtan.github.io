@@ -28,26 +28,26 @@
 //     });
 //   });
 
-let lastClickedElement = null;
-let isMobile = /Mobi|Android/i.test(navigator.userAgent); // Check if it's a mobile device
+let lastClickedElement = null; // To store the last clicked element
+let isMobile = /Mobi|Android/i.test(navigator.userAgent); // Detect if the device is mobile
 
 // Function to handle click event
 function handleClick(event) {
-    const imageContainer = event.currentTarget; // The container where image was clicked
-    const link = imageContainer.querySelector('a'); // The link inside the image container
+    const imageContainer = event.currentTarget; // The image container that was clicked
+    const link = imageContainer.querySelector('a'); // Find the link inside the clicked image container
 
-    // If it's a mobile device, handle click in a special way
+    // Handle behavior on mobile devices
     if (isMobile) {
         // If the same image container was clicked twice, navigate to the link
         if (lastClickedElement === imageContainer) {
-            window.open(link.href, '_blank'); // Open link in a new tab
+            window.open(link.href, '_blank'); // Open the link in a new tab
             lastClickedElement = null; // Reset the last clicked element
         } else {
-            lastClickedElement = imageContainer; // Set the current clicked image container
-            imageContainer.classList.add('hovered'); // Apply the hover effect
+            lastClickedElement = imageContainer; // Set the current image container as clicked
+            imageContainer.classList.add('hovered'); // Apply the hover effect on mobile
         }
     } else {
-        // On desktop, navigate immediately when clicked
+        // Handle behavior on desktop devices (immediate link opening on click)
         window.open(link.href, '_blank'); // Open the link in a new tab
     }
 }
