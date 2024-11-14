@@ -118,7 +118,6 @@ h2 {
     transform: 0.3s ease;
     opacity: 1;
 }
-
   
 ul {
     padding: 0;
@@ -180,7 +179,7 @@ footer a {
     font-weight: bold;
 }
 
-footer a,p {
+footer a,footer p {
     color: #bfc0d8
 }
 
