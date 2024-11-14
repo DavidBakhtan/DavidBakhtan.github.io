@@ -18,6 +18,7 @@ const images = document.querySelectorAll('.image-container');
         }
       } else {
         window.location.href = link.href;
+        isPressed= false;
       }
     });
   });
