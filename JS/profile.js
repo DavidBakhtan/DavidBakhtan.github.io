@@ -1,8 +1,8 @@
 const isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
   let lastPressedImageId = null;
+  let isPressed = false;
 
   document.querySelectorAll('.image-container').forEach((imageContainer) => {
-    let isPressed = false;
     const image = imageContainer.querySelector('.image');
     const link = imageContainer.querySelector('a');
 
