@@ -29,8 +29,8 @@
 //   });
 
 let lastClickedElement = null; // To store the last clicked element
-let isMobile = /Mobi|Android/i.test(navigator.userAgent); // Detect if the device is mobile
-
+let isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent); // التحقق من نوع الجهاز // Detect if the device is mobile
+console.log("Is mobile device:", isMobile); 
 // Function to handle click event
 function handleClick(event) {
     const imageContainer = event.currentTarget; // The image container that was clicked
